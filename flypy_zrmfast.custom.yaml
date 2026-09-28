@@ -9,9 +9,10 @@ patch:
     #- { when: composing, accept: Tab, send: '[' } ## tab引导辅助码
     #- { when: composing, accept: comma, send: '[' } ## 逗号引导辅助码，常用于手机端
     #- { when: has_menu, accept: apostrophe, send: 3 } ## 单引号用于第3候选
-    - { when: composing, accept: grave, send_sequence: '{Right}{Right}{Shift+Left}{Right}{Right}[' }
+    - { when: composing, accept: grave, send_sequence: '{KP_Right}{KP_Right}{Shift+Left}{KP_Right}{KP_Right}[' }
       ## `键（grave，Tab 上面那个）为词组逐字追加辅助码。
       ## 可将 grave 改成 Tab，Control+Tab，bracketright（] 键）。
+      ## KP_Right 默认逐字符右移，不改变普通 Right 键的行为。
 
   #speller/algebra/@next: derive/^(..[[]).+$/$1/ ## 取消注释后：无视多余的引导符 [
 
